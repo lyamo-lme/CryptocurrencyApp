@@ -13,7 +13,7 @@ namespace TestTask.Converter
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             if (value != null)
-                return Math.Round((decimal)value, 4);
+                return $"{Math.Round((decimal)value, 5)}";
             return "";
         }
 

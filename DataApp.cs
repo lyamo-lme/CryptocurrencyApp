@@ -9,5 +9,13 @@ namespace TestTask
 {
     public class DataApp
     {
+        public static List<Cryptocurrency> cryptocurrencies = new List<Cryptocurrency>();
+        public static List<Cryptocurrency> GetCountFromBegin(int count)
+        {
+            if (count <= cryptocurrencies.Count)
+                return cryptocurrencies.GetRange(0, count);
+            return default(List<Cryptocurrency>);
+        }
+
     }
 }
