@@ -1,0 +1,40 @@
+﻿<Page x:Class="TestTask.Frames.Table"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:localr="clr-namespace:TestTask.Converter"
+      xmlns:local="clr-namespace:TestTask.Frames"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Background="Black"
+      Title="Table">
+    <Page.Resources>
+        <localr:CostConverter x:Key="CostConverter"></localr:CostConverter>
+        <localr:ColorConverter x:Key="ColorConverter"></localr:ColorConverter>
+    </Page.Resources>
+
+    <Grid Loaded="MainGrid_Loaded">
+        <DataGrid   x:Name="CurrencyTable" IsReadOnly="True" MouseDoubleClick="SelectItem" AutoGenerateColumns="False" FrozenColumnCount="1" Margin="10,29,10,0" >
+            <DataGrid.Columns >
+                <DataGridTextColumn CanUserResize="False" Width="45" Header="Rank"  IsReadOnly="True" Binding="{Binding Path=Rank}"   />
+                <DataGridTextColumn Width="*"  Header="Name"  CanUserSort="True"  Binding="{Binding Path=Name}" CanUserResize="False"  IsReadOnly="True"  />
+                <DataGridTextColumn CanUserResize="False" Width="auto"  Header="Symbol" IsReadOnly="True" Binding="{Binding Path=Symbol}" />
+                <DataGridTextColumn CanUserResize="False" Width="*"  Header="Price" IsReadOnly="True"  Binding="{Binding Path=PriceUsd, Converter={StaticResource CostConverter}, StringFormat={}{0:C}}"  />
+                <DataGridTextColumn CanUserResize="False" Width="auto"  Header="24%"   IsReadOnly="True"   Binding="{Binding Path=ChangePercent24Hr, Converter={StaticResource CostConverter}}"  >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="{Binding  Path=ChangePercent24Hr, Converter={StaticResource ColorConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserResize="False" Width="auto"  Header="Market Capitalization" IsReadOnly="True"  Binding="{Binding Path=MarketCapUsd, Converter={StaticResource CostConverter}}"  />
+                <DataGridTextColumn CanUserResize="False" Width="*"  Header="Volume" IsReadOnly="True"   Binding="{Binding Path=VWap24Hr, Converter={StaticResource CostConverter}}"  />
+                <DataGridTextColumn CanUserResize="False" Width="*"  Header="Supply"  IsReadOnly="True"  Binding="{Binding Path=Supply, Converter={StaticResource CostConverter}}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="CountElement" HorizontalAlignment="Left" Margin="71,6,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="120" TextChanged="CountElement_TextChanged"/>
+        <Label Width="50" Height="25" Content="Count" Margin="21,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Page>

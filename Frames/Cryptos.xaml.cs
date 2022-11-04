@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestTask.Model;
 
 namespace TestTask.Frames
 {
@@ -20,9 +21,11 @@ namespace TestTask.Frames
     /// </summary>
     public partial class Cryptos : Page
     {
-        public Cryptos()
+        private Cryptocurrency cryptocurrency { get; set; }
+        public Cryptos(Cryptocurrency cryptocurrency)
         {
             InitializeComponent();
+            this.cryptocurrency = cryptocurrency;
         }
     }
 }

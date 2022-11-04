@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Maks\source\repos\TestTask\TestTask\App.xaml
-31556614185
+41375094839
 
-101960854487
+111969889902
 195-912979659
-Frames\Cryptos.xaml;Frames\MainPage.xaml;MainWindow.xaml;
+Frames\Cryptos.xaml;Frames\MainPage.xaml;Frames\Table.xaml;MainWindow.xaml;
 
 False
 

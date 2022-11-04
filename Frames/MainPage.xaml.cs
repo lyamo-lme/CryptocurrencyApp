@@ -21,40 +21,17 @@ namespace TestTask.Frames
     /// </summary>
     public partial class MainPage : Page
     {
-
+        List<Page> pages = new List<Page>();
         public MainPage()
         {
             InitializeComponent();
-            CountElement.Text = "10";
+            pages.Add(new Table(MainFrame));
+            MainFrame.Content = pages[0];
         }
 
-        private void MainGrid_Loaded(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FillTable();
-        }
-        private void FillTable()
-        {
-
-            if (int.TryParse(CountElement.Text, out int newCount))
-            {
-                int maxCount = DataApp.cryptocurrencies.Count;
-                if (!CountElement.Text.Equals(""))
-                {
-                    CurrencyTable.ItemsSource = DataApp.GetCountFromBegin(newCount >= maxCount ? maxCount : newCount);
-                 
-                }
-            }
-           
-        }
-
-        private void SelectItem(object sender, MouseButtonEventArgs e)
-        {
-            Cryptocurrency path = CurrencyTable.SelectedItem as Cryptocurrency;
-        }
-
-        private void CountElement_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            FillTable();
+            MainFrame.Content = pages[0];
         }
     }
 }

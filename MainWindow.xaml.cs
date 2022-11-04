@@ -30,25 +30,18 @@ namespace TestTask
 
         private Api clientApi = new Api();
         private List<Page> pages = new List<Page> {
-         new MainPage(),
-         new Cryptos()
+         new MainPage()
         };
 
         public MainWindow()
         {
             InitializeComponent();
-
-        }
-
-
-        private void Click(object sender, RoutedEventArgs e)
-        {
-
+            MainFrame.Content = pages[0];
         }
 
         private void CryptosPage(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = pages[1];
+           
         }
         private void MainPage(object sender, RoutedEventArgs e)
         {
