@@ -25,3 +25,4 @@ C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\Cry
 C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\MainPage.g.cs
 C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\Cryptos.baml
 C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\MainPage.baml
+C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs

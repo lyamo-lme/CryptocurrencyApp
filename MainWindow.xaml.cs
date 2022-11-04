@@ -27,21 +27,19 @@ namespace TestTask
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Cryptocurrency> list = new List<Cryptocurrency>();
+    
         private Api clientApi = new Api();
+        public static List<Cryptocurrency> cryptocurrencies = new List<Cryptocurrency>();
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        async Task Fetch()
-        {
-               list =   await clientApi.FetchDataAsync<List<Cryptocurrency>>(Api.urlCoinCap+"assets");
-        }
-
+      
         private void Click(object sender, RoutedEventArgs e)
         {
-            Fetch();
+           
         }
 
         private void CryptosPage(object sender, RoutedEventArgs e)
@@ -51,6 +49,15 @@ namespace TestTask
         private void MainPage(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new MainPage();
+        }
+
+        private async void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+           await  Fetch();
+        }
+        private async Task Fetch()
+        {
+           cryptocurrencies = await clientApi.FetchDataAsync<List<Cryptocurrency>>(Api.urlCoinCap + "assets");
         }
     }
 }

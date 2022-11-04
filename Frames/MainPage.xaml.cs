@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestTask.Model;
 
 namespace TestTask.Frames
 {
@@ -20,9 +21,25 @@ namespace TestTask.Frames
     /// </summary>
     public partial class MainPage : Page
     {
+       
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void MainGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            CurrencyTable.ItemsSource = MainWindow.cryptocurrencies;
+        } 
+        private void FillTable() {
+            
+        }
+
+        private void SelectItem(object sender, MouseButtonEventArgs e)
+        {
+            Cryptocurrency path = CurrencyTable.SelectedItem as Cryptocurrency;
+
         }
     }
 }

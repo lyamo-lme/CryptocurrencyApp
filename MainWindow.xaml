@@ -3,18 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TestTask"
+        xmlns:local="clr-namespace:TestTask" xmlns:local1="clr-namespace:TestTask.Converter"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
+        <local1:CostConverter x:Key="CostConverter"></local1:CostConverter>
+        <local1:ColorConverter x:Key="ColorConverter"></local1:ColorConverter>
+    </Window.Resources>
+    <Grid Loaded="Grid_Loaded">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="31"></RowDefinition>
+            <RowDefinition  Height="Auto" MinHeight="31"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Click="MainPage" x:Name="MainPageButton" Grid.Row="0"  Content="Main" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"   Height="20" Width="40"/>
-        <Button Click="CryptosPage" x:Name="CryptoButton" Grid.Row="0"  Content="Сryptocurrencies" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top"   Height="20" Width="40"/>
-        <Frame x:Name="MainFrame"  Grid.Row="1" Background="Red"></Frame>
-       
+        <Button  Click="MainPage" x:Name="MainPageButton"  Content="Main" HorizontalAlignment="Left" Margin="4,0,0,0" VerticalAlignment="Center"   Height="20" Width="40"/>
+        <Button Click="CryptosPage" x:Name="CryptoButton"  Content="Сryptocurrencies" HorizontalAlignment="Left" Margin="49,0,0,0" VerticalAlignment="Center"   Height="20" Width="40"/>
+        <Frame  x:Name="MainFrame"  Grid.Row="1" Background="Red" NavigationUIVisibility="Hidden"></Frame>
+
 
     </Grid>
 </Window>
