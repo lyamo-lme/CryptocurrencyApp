@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestTask.Frames;
 using TestTask.Model;
 
 namespace TestTask
@@ -27,29 +28,29 @@ namespace TestTask
     public partial class MainWindow : Window
     {
         public List<Cryptocurrency> list = new List<Cryptocurrency>();
+        private Api clientApi = new Api();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        async void Fetch()
+        async Task Fetch()
         {
-            
-                using (var client = new HttpClient())
-                {
-                    var response = await client.GetAsync("https://api.coincap.io/v2/assets");
-                    var ret = JsonConvert.DeserializeObject<dynamic>(await response.Content.ReadAsStringAsync());
-                    if (ret != null)
-                    {
-                        list = JsonConvert.DeserializeObject<List<Cryptocurrency>>(ret["data"].ToString());
-                    }
-                }
-            
+               list =   await clientApi.FetchDataAsync<List<Cryptocurrency>>(Api.urlCoinCap+"assets");
         }
 
         private void Click(object sender, RoutedEventArgs e)
         {
             Fetch();
+        }
+
+        private void CryptosPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new Cryptos();
+        }
+        private void MainPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new MainPage();
         }
     }
 }

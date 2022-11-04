@@ -7,7 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="479,151,0,0" VerticalAlignment="Top" Click="Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="31"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Click="MainPage" x:Name="MainPageButton" Grid.Row="0"  Content="Main" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"   Height="20" Width="40"/>
+        <Button Click="CryptosPage" x:Name="CryptoButton" Grid.Row="0"  Content="Сryptocurrencies" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top"   Height="20" Width="40"/>
+        <Frame x:Name="MainFrame"  Grid.Row="1" Background="Red"></Frame>
+       
 
     </Grid>
 </Window>

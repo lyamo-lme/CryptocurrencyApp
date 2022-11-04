@@ -21,3 +21,7 @@ C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\TestTask.g
 C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\ref\TestTask.dll
 C:\Users\Maks\source\repos\TestTask\TestTask\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\TestTask.csproj.CopyComplete
+C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\Cryptos.g.cs
+C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\MainPage.g.cs
+C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\Cryptos.baml
+C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\MainPage.baml
