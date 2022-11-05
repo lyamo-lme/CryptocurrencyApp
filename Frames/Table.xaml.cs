@@ -25,6 +25,7 @@ namespace TestTask.Frames
     {
         DispatcherTimer timer = new DispatcherTimer();
         public Frame? ParentFrame = null;
+        public bool UpdateAble = true;
         public Table(Frame? parentFrame)
         {
 
@@ -38,25 +39,31 @@ namespace TestTask.Frames
         }
         private async void Loaded(object sender, EventArgs e)
         {
+            if(UpdateAble)
             await UpdateTable();
         }
 
         private async Task UpdateTable()
         {
-            await Fetch();
-            FillTable();
+            await FetchData();
+            FillTable(GetCountCryptByTextElem());
         }
-        private void FillTable()
-        {
+
+        private List<Cryptocurrency> GetCountCryptByTextElem() {
+
             if (int.TryParse(CountElement.Text, out int newCount))
             {
                 int maxCount = DataApp.cryptocurrencies.Count;
                 if (!CountElement.Text.Equals(""))
                 {
-                    CurrencyTable.ItemsSource = DataApp.GetCountFromBegin(newCount >= maxCount ? maxCount : newCount);
+                    return DataApp.GetCountFromBegin(newCount >= maxCount ? maxCount : newCount);
                 }
             }
-
+            return (List<Cryptocurrency>)CurrencyTable.ItemsSource;
+        }
+        private void FillTable(List<Cryptocurrency> list)
+        {
+            CurrencyTable.ItemsSource = list;
         }
 
         public void SelectItem(object sender, MouseButtonEventArgs e)
@@ -64,15 +71,18 @@ namespace TestTask.Frames
             if (ParentFrame != null)
             {
                 Cryptocurrency cryptocurrency = CurrencyTable.SelectedItem as Cryptocurrency;
-                ParentFrame.Content = new Cryptos(cryptocurrency);
+                ChangeParentFrame(new Cryptos(cryptocurrency));
             }
+        }
+        private void ChangeParentFrame(Page page) {
+            ParentFrame.Content = page;
         }
 
         private void CountElement_TextChanged(object sender, TextChangedEventArgs e)
         {
-            FillTable();
+            FillTable(GetCountCryptByTextElem());
         }
-        private async Task Fetch()
+        private async Task FetchData()
         {
             DataApp.cryptocurrencies = await Api.FetchDataAsync<List<Cryptocurrency>>(Api.urlCoinCap + "assets");
         }
@@ -82,6 +92,17 @@ namespace TestTask.Frames
 
         }
 
+        private void FindElement_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!Find.Text.Equals(""))
+            {
+                UpdateAble = false;
+                FillTable(DataApp.GetByIdOrNameOrSymbol(Find.Text));
+            }
+            else {
+                UpdateAble = true;
+            }
+        }
     }
 }
 

@@ -33,6 +33,10 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="CountElement" HorizontalAlignment="Left" Margin="71,6,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="120" TextChanged="CountElement_TextChanged"/>
+        <TextBox x:Name="Find" HorizontalAlignment="Left" Margin="670,6,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="FindElement_TextChanged"/>
         <Label Width="50" Height="25" Content="Count" Margin="21,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Width="50" Height="25" Content="Count" Margin="598,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Width="50" Height="25" Content="Find" Margin="598,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        
     </Grid>
 </Page>

@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TestTask.Model;
 
 namespace TestTask.Frames
@@ -27,20 +17,23 @@ namespace TestTask.Frames
             InitializeComponent();
             this.cryptocurrency = cryptocurrency;
             this.DataContext = this.cryptocurrency;
-
         }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-           await Fetch();
-           HistoryTable.ItemsSource = cryptocurrency.HistoryCurrencies;
+            await FetchData();
+             UpdateDataTable();
+        }
+        private void UpdateDataTable() {
+            HistoryTable.ItemsSource = cryptocurrency.HistoryCurrencies;
             MarketTable.ItemsSource = cryptocurrency.MarketCurrencies;
         }
-        private async Task Fetch()
+        private async Task FetchData()
         {
-           cryptocurrency =  await Api.FetchDataAsync<Cryptocurrency>(Api.urlCoinCap + $"assets/{cryptocurrency.Id}");
-           cryptocurrency.HistoryCurrencies = await Api.FetchDataAsync<List<HistoryCurrency>>(Api.urlCoinCap + $"assets/{cryptocurrency.Id}/history?interval=d1");
+            cryptocurrency = await Api.FetchDataAsync<Cryptocurrency>(Api.urlCoinCap + $"assets/{cryptocurrency.Id}");
+            cryptocurrency.HistoryCurrencies = await Api.FetchDataAsync<List<HistoryCurrency>>(Api.urlCoinCap + $"assets/{cryptocurrency.Id}/history?interval=d1");
             cryptocurrency.MarketCurrencies = await Api.FetchDataAsync<List<MarketsCurrency>>(Api.urlCoinCap + $"assets/{cryptocurrency.Id}/markets");
+            cryptocurrency.Candlesticks = await Api.FetchDataAsync<List<Candlestick>>(Api.urlCoinCap + $"candles?exchange=poloniex&interval=h4&baseId=ethereum&quoteId={cryptocurrency.Id}");
         }
     }
 }

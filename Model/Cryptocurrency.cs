@@ -20,5 +20,6 @@ namespace TestTask.Model
         public decimal? VWap24Hr { get;set; }
         public List<HistoryCurrency>? HistoryCurrencies { get; set; }
         public List<MarketsCurrency>? MarketCurrencies { get; set; }
+        public List<Candlestick>? Candlesticks { get; set; }
     }
 }

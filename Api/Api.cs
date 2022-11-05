@@ -33,13 +33,14 @@ namespace TestTask
                         T data = JsonConvert.DeserializeObject<T>(res["data"].ToString());
                         return data;
                     }
+                    return default(T);
                 }
             }
-            catch
+            catch(Exception e)
             {
-                Console.WriteLine("exp");
+                throw new Exception(e.ToString());
             }
-            return default(T);
+        
         }
     }
 }

@@ -2,8 +2,7 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TestTask.Frames"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"  Background="Blue"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Cryptos">
@@ -28,14 +27,14 @@
         <Label Content="{Binding Path=PriceUsd}" Margin="51,43,264,94"/>
         <Label Content="{Binding Path=Supply}" Margin="56,88,259,49"/>
         <Label Content="{Binding Path=ChangePercent24Hr}" Margin="43,68,272,69"/>
-        <DataGrid AutoGenerateColumns="False"  x:Name="HistoryTable" Grid.Row="1"  Margin="0,0,0,-179" HorizontalAlignment="Center" Width="400" Height="205" VerticalAlignment="Bottom">
+        <DataGrid AutoGenerateColumns="False"  x:Name="HistoryTable" Grid.Row="1"  Margin="5,0,0,-192" HorizontalAlignment="Left" Width="400" Height="205" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
             <DataGrid.Columns >
                 <DataGridTextColumn CanUserResize="False" Width="*" Header="PriceUsd"  IsReadOnly="True" Binding="{Binding Path=PriceUsd}"   />
                 <DataGridTextColumn CanUserResize="False" Width="*" Header="Date"  IsReadOnly="True" Binding="{Binding Path=Date}"   />
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Market" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="65" Grid.Column="1" Margin="10,3,0,0"/>
-        <DataGrid x:Name="MarketTable" Grid.Row="1"  Margin="10,0,0,-176" HorizontalAlignment="Left" Width="400" Height="204" VerticalAlignment="Bottom" Grid.Column="1">
+        <DataGrid x:Name="MarketTable" Grid.Row="1"  Margin="10,0,0,-191" HorizontalAlignment="Left" Width="400" Height="204" VerticalAlignment="Bottom" Grid.Column="1">
             <!--<DataGrid.Columns>
                 <DataGridTextColumn CanUserResize="False" Width="*" Header="PriceUsd"  IsReadOnly="True" Binding="{Binding Path=PriceUsd}"   />
                 <DataGridTextColumn CanUserResize="False" Width="*" Header="Date"  IsReadOnly="True" Binding="{Binding Path=Date}"   />
