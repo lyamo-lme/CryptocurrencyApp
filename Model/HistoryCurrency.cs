@@ -9,6 +9,7 @@ namespace TestTask.Model
     public class HistoryCurrency
     {
         public decimal PriceUsd { get; set; }
-        public DateTime Time  { get; set; }
+        public string Time  { get; set; }
+        public DateTime Date { get; set; }
     }
 }

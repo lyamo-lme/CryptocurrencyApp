@@ -26,15 +26,21 @@ namespace TestTask.Frames
         {
             InitializeComponent();
             this.cryptocurrency = cryptocurrency;
+            this.DataContext = this.cryptocurrency;
+
         }
 
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            Fetch();
+           await Fetch();
+           HistoryTable.ItemsSource = cryptocurrency.HistoryCurrencies;
+            MarketTable.ItemsSource = cryptocurrency.MarketCurrencies;
         }
         private async Task Fetch()
         {
            cryptocurrency =  await Api.FetchDataAsync<Cryptocurrency>(Api.urlCoinCap + $"assets/{cryptocurrency.Id}");
+           cryptocurrency.HistoryCurrencies = await Api.FetchDataAsync<List<HistoryCurrency>>(Api.urlCoinCap + $"assets/{cryptocurrency.Id}/history?interval=d1");
+            cryptocurrency.MarketCurrencies = await Api.FetchDataAsync<List<MarketsCurrency>>(Api.urlCoinCap + $"assets/{cryptocurrency.Id}/markets");
         }
     }
 }

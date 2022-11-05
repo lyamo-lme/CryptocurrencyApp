@@ -31,9 +31,10 @@ namespace TestTask.Frames
             InitializeComponent();
             CountElement.Text = "10";
             ParentFrame = parentFrame;
-            timer.Interval = TimeSpan.FromSeconds(5);
+            timer.Interval = TimeSpan.FromSeconds(10);
             timer.Tick += Loaded;
             timer.Start();
+           
         }
         private async void Loaded(object sender, EventArgs e)
         {
@@ -47,7 +48,6 @@ namespace TestTask.Frames
         }
         private void FillTable()
         {
-
             if (int.TryParse(CountElement.Text, out int newCount))
             {
                 int maxCount = DataApp.cryptocurrencies.Count;
