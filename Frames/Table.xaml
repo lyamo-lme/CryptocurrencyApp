@@ -13,8 +13,8 @@
         <localr:ColorConverter x:Key="ColorConverter"></localr:ColorConverter>
     </Page.Resources>
 
-    <Grid Loaded="MainGrid_Loaded">
-        <DataGrid   x:Name="CurrencyTable" IsReadOnly="True" MouseDoubleClick="SelectItem" AutoGenerateColumns="False" FrozenColumnCount="1" Margin="10,29,10,0" >
+    <Grid Initialized="Loaded">
+        <DataGrid Height="auto"  x:Name="CurrencyTable" IsReadOnly="True" MouseDoubleClick="SelectItem" AutoGenerateColumns="False" FrozenColumnCount="1" Margin="10,29,10,0" >
             <DataGrid.Columns >
                 <DataGridTextColumn CanUserResize="False" Width="45" Header="Rank"  IsReadOnly="True" Binding="{Binding Path=Rank}"   />
                 <DataGridTextColumn Width="*"  Header="Name"  CanUserSort="True"  Binding="{Binding Path=Name}" CanUserResize="False"  IsReadOnly="True"  />

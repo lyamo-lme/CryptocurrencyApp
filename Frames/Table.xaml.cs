@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using TestTask.Model;
 
 namespace TestTask.Frames
@@ -21,6 +23,7 @@ namespace TestTask.Frames
     /// </summary>
     public partial class Table : Page
     {
+        DispatcherTimer timer = new DispatcherTimer();
         public Frame? ParentFrame = null;
         public Table(Frame? parentFrame)
         {
@@ -28,9 +31,18 @@ namespace TestTask.Frames
             InitializeComponent();
             CountElement.Text = "10";
             ParentFrame = parentFrame;
+            timer.Interval = TimeSpan.FromSeconds(5);
+            timer.Tick += Loaded;
+            timer.Start();
         }
-        private void MainGrid_Loaded(object sender, RoutedEventArgs e)
+        private async void Loaded(object sender, EventArgs e)
         {
+            await UpdateTable();
+        }
+
+        private async Task UpdateTable()
+        {
+            await Fetch();
             FillTable();
         }
         private void FillTable()
@@ -60,5 +72,16 @@ namespace TestTask.Frames
         {
             FillTable();
         }
+        private async Task Fetch()
+        {
+            DataApp.cryptocurrencies = await Api.FetchDataAsync<List<Cryptocurrency>>(Api.urlCoinCap + "assets");
+        }
+
+        private void MainGrid_Loaded(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
+

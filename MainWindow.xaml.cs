@@ -27,8 +27,6 @@ namespace TestTask
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        private Api clientApi = new Api();
         private List<Page> pages = new List<Page> {
          new MainPage()
         };
@@ -48,13 +46,9 @@ namespace TestTask
             MainFrame.Content = pages[0];
         }
 
-        private async void Grid_Loaded(object sender, RoutedEventArgs e)
+        private  void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            await Fetch();
-        }
-        private async Task Fetch()
-        {
-            DataApp.cryptocurrencies = await clientApi.FetchDataAsync<List<Cryptocurrency>>(Api.urlCoinCap + "assets");
+             
         }
     }
 }

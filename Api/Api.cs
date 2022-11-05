@@ -10,17 +10,17 @@ using TestTask.Model;
 
 namespace TestTask
 {
-    public class Api
+    public static class Api
     {
-        private HttpClient Client
+        private static HttpClient Client
         {
             get { return new HttpClient(); }
         }
 
         public static string urlCoinCap = "https://api.coincap.io/v2/";
-        public async Task<T> FetchDataAsync<T>(string url) => await QueryToApiAsync<T>(url);
+        public static async Task<T> FetchDataAsync<T>(string url) => await QueryToApiAsync<T>(url);
 
-        private async Task<T> QueryToApiAsync<T>(string url)  
+        private static async Task<T> QueryToApiAsync<T>(string url)  
         {
             try
             {

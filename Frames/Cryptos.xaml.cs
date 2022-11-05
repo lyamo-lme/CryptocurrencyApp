@@ -27,5 +27,14 @@ namespace TestTask.Frames
             InitializeComponent();
             this.cryptocurrency = cryptocurrency;
         }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            Fetch();
+        }
+        private async Task Fetch()
+        {
+           cryptocurrency =  await Api.FetchDataAsync<Cryptocurrency>(Api.urlCoinCap + $"assets/{cryptocurrency.Id}");
+        }
     }
 }

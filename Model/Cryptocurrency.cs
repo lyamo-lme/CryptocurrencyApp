@@ -18,6 +18,7 @@ namespace TestTask.Model
         public decimal PriceUsd { get;set; }
         public decimal ChangePercent24Hr { get;set; }
         public decimal? VWap24Hr { get;set; }
-        
+        public List<HistoryCurrency>? HistoryCurrencies { get; set; }
+        public List<MarketsCurrency>? MarketCurrencies { get; set; }
     }
 }
