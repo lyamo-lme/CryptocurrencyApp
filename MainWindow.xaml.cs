@@ -37,18 +37,5 @@ namespace TestTask
             MainFrame.Content = pages[0];
         }
 
-        private void CryptosPage(object sender, RoutedEventArgs e)
-        {
-           
-        }
-        private void MainPage(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = pages[0];
-        }
-
-        private  void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-             
-        }
     }
 }

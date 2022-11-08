@@ -28,3 +28,6 @@ C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\Mai
 C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\Table.g.cs
 C:\Users\Maks\source\repos\TestTask\TestTask\obj\Debug\net6.0-windows\Frames\Table.baml
+C:\Users\Maks\source\repos\TestTask\TestTask\bin\Debug\net6.0-windows\OxyPlot.dll
+C:\Users\Maks\source\repos\TestTask\TestTask\bin\Debug\net6.0-windows\OxyPlot.Wpf.dll
+C:\Users\Maks\source\repos\TestTask\TestTask\bin\Debug\net6.0-windows\OxyPlot.Wpf.Shared.dll

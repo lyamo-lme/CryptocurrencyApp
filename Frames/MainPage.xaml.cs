@@ -29,9 +29,12 @@ namespace TestTask.Frames
             MainFrame.Content = pages[0];
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ToTableFrame(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = pages[0];
+            BackMenuButton.Visibility = Visibility.Hidden;
         }
+
+     
     }
 }

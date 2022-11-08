@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "G3JRv+eJ+JCliGNUpZq+09lK35Rfmp2fwl3/55kG76Ip7vDQmOUiDVkdB5ncl5P6dKlxKv18+Ihj1caRuwwEAg==",
+  "dgSpecHash": "YtHuKtUUbm7zTub/GpGH9vFTHeWEdFNCZR14y5VeqtRvPzJimnf/lnctbZZETlR4jgBihtwKqIwSxOF5lPTpTA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Maks\\source\\repos\\TestTask\\TestTask\\TestTask.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Maks\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\Maks\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Maks\\.nuget\\packages\\oxyplot.core\\2.1.0\\oxyplot.core.2.1.0.nupkg.sha512",
+    "C:\\Users\\Maks\\.nuget\\packages\\oxyplot.wpf\\2.1.0\\oxyplot.wpf.2.1.0.nupkg.sha512",
+    "C:\\Users\\Maks\\.nuget\\packages\\oxyplot.wpf.shared\\2.1.0\\oxyplot.wpf.shared.2.1.0.nupkg.sha512"
   ],
   "logs": []
 }

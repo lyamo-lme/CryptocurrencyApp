@@ -10,15 +10,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage"
-      Background="Yellow">
+      Background="White">
     <Page.Resources>
         <localr:CostConverter x:Key="CostConverter"></localr:CostConverter>
         <localr:ColorConverter x:Key="ColorConverter"></localr:ColorConverter>
     </Page.Resources>
-
-
     <Grid x:Name="MainGrid"   >
-        <Frame  x:Name="MainFrame" Background="Red" NavigationUIVisibility="Hidden" Margin="0,21,0,0"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="752,30,0,0" VerticalAlignment="Top" Click="Button_Click" Height="34" Width="38"/>
+        <Frame  x:Name="MainFrame" Background="White" BorderBrush="Aqua"  NavigationUIVisibility="Hidden" Margin="0,21,0,0"/>
+        <Button x:Name="BackMenuButton" Content="Back" HorizontalAlignment="Right" Margin="0,1,10,0" VerticalAlignment="Top" Visibility="Visible" Click="ToTableFrame"/>
     </Grid>
 </Page>

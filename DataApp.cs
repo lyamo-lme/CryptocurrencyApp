@@ -9,7 +9,11 @@ namespace TestTask
 {
     public class DataApp
     {
-        public static List<Cryptocurrency> cryptocurrencies = new List<Cryptocurrency>();
+        public static List<Cryptocurrency> cryptocurrencies = new List<Cryptocurrency> {
+        new Cryptocurrency{
+        Name= "asd", Id="asdw"
+        }
+        };
 
         public static List<Cryptocurrency> GetCountFromBegin(int count)
         {
@@ -17,11 +21,19 @@ namespace TestTask
                 return cryptocurrencies.GetRange(0, count);
             return default(List<Cryptocurrency>);
         }
-        public static List<Cryptocurrency> GetByIdOrNameOrSymbol(string value) {
+        public static List<Cryptocurrency> GetByIdOrNameOrSymbol(string value)
+        {
             value = value.ToLower();
-            return cryptocurrencies.FindAll(x => x.Id.ToLower().Contains(value) ||
-            x.Name.ToLower().Contains(value)
-            ||x.Symbol.ToLower().Contains(value));
+            try
+            {
+                return cryptocurrencies.FindAll(x => x.Id.ToLower().Contains(value) ||
+                x.Name.ToLower().Contains(value)
+                || x.Symbol.ToLower().Contains(value));
+            }
+            catch
+            {
+                return default(List<Cryptocurrency>);
+            }
         }
 
     }

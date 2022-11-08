@@ -21,26 +21,28 @@ namespace TestTask.Frames
     /// <summary>
     /// Логика взаимодействия для Table.xaml
     /// </summary>
-    public partial class Table : Page
+    
+   public partial class Table : Page
     {
         DispatcherTimer timer = new DispatcherTimer();
+
         public Frame? ParentFrame = null;
         public bool UpdateAble = true;
+
         public Table(Frame? parentFrame)
         {
-
             InitializeComponent();
             CountElement.Text = "10";
             ParentFrame = parentFrame;
             timer.Interval = TimeSpan.FromSeconds(10);
             timer.Tick += Loaded;
             timer.Start();
-           
         }
+
         private async void Loaded(object sender, EventArgs e)
         {
-            if(UpdateAble)
-            await UpdateTable();
+            if (UpdateAble)
+                await UpdateTable();
         }
 
         private async Task UpdateTable()
@@ -49,8 +51,8 @@ namespace TestTask.Frames
             FillTable(GetCountCryptByTextElem());
         }
 
-        private List<Cryptocurrency> GetCountCryptByTextElem() {
-
+        private List<Cryptocurrency> GetCountCryptByTextElem()
+        {
             if (int.TryParse(CountElement.Text, out int newCount))
             {
                 int maxCount = DataApp.cryptocurrencies.Count;
@@ -59,8 +61,10 @@ namespace TestTask.Frames
                     return DataApp.GetCountFromBegin(newCount >= maxCount ? maxCount : newCount);
                 }
             }
+
             return (List<Cryptocurrency>)CurrencyTable.ItemsSource;
         }
+
         private void FillTable(List<Cryptocurrency> list)
         {
             CurrencyTable.ItemsSource = list;
@@ -74,7 +78,9 @@ namespace TestTask.Frames
                 ChangeParentFrame(new Cryptos(cryptocurrency));
             }
         }
-        private void ChangeParentFrame(Page page) {
+
+        private void ChangeParentFrame(Page page)
+        {
             ParentFrame.Content = page;
         }
 
@@ -82,27 +88,27 @@ namespace TestTask.Frames
         {
             FillTable(GetCountCryptByTextElem());
         }
+
         private async Task FetchData()
         {
+
             DataApp.cryptocurrencies = await Api.FetchDataAsync<List<Cryptocurrency>>(Api.urlCoinCap + "assets");
         }
-
-        private void MainGrid_Loaded(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void FindElement_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!Find.Text.Equals(""))
             {
+                CountElement.Visibility = Visibility.Hidden;
                 UpdateAble = false;
                 FillTable(DataApp.GetByIdOrNameOrSymbol(Find.Text));
             }
-            else {
+            else
+            {
+                CountElement.Visibility = Visibility.Visible;
                 UpdateAble = true;
+                FillTable(GetCountCryptByTextElem());
             }
         }
     }
 }
-
